@@ -1,12 +1,22 @@
-Link FrontEnd - https://github.com/sarahp31/I-Student_frontend.git
-
 <h1>Projeto 3</h1>
 
 Gabriel Onishi, Pedro Mahfuz e Sarah Pimenta
+Link FrontEnd - https://github.com/sarahp31/I-Student_frontend.git  <br/>
 
-<h2>Acesso remoto via</h2>
-https://serene-peak-43585.herokuapp.com/ <br>
-<b>Nota</b>: É possível que o seu navegador/provedor de internet bloqueie o backend por razões de segurança. Caso isso aconteça, tente alimentar a internet via roteador do celular
+## Lista de tarefas <br/>
+
+### Semana 1 (25/06)
+- [ ] Backend Básico 
+- [ ] Descrição de curso
+- [ ] Descrição de matéria <br/>
+
+### Semana 2 (01/06)
+- [ ] Função de upload de resumo funcional
+- [ ] Backend das telas "encaminhado" <br/>
+
+### Semana 3 (08/06) - ENTREGA!!!
+- [ ] Backend de todas as telas terminado e funcional
+- [ ] Autenticação completa
 
 <h2>Requirements</h2>
 <ul>
