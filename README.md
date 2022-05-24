@@ -1,7 +1,7 @@
 # Projeto 3 - TecWeb - BackEnd
 Link FrontEnd - https://github.com/sarahp31/I-Student_frontend.git  <br/>
 ## Semana 1 (25/06)
-### - [ ] Backend Básico
+**- [ ] Backend Básico **
 - [ ] Descrição de curso
 - [ ] Descrição de matéria <br/>
 
