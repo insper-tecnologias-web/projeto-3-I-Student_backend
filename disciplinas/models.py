@@ -7,6 +7,8 @@ class Course(models.Model):
     display_course_name = models.CharField(max_length=50, unique=True)
     number_of_semesters = models.IntegerField()
     description = models.TextField()
+    background_img =  models.ImageField(upload_to = 'images/')
+    img_description = models.CharField(max_length=50, default=display_course_name)
 
     def __str__(self):
         return self.url_course_name
@@ -20,3 +22,4 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.url_subject_name
+        
