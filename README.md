@@ -28,6 +28,7 @@ Link FrontEnd - https://github.com/sarahp31/I-Student_frontend.git  <br/>
 <li>Django CORS headers v3.12.0</li>
 <li>gunicorn v20.1.0</li>
 <li>dj-database-url v0.5.0</li>
+<li>Pillow</li>
 </ul>
 
 <h2>Para rodar o back-end</h2>
