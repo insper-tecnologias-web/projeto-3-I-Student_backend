@@ -22,4 +22,12 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.url_subject_name
+
+class Summary(models.Model):
+    filename = models.CharField(max_length=50)
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    file = models.FileField(upload_to='resumos/')
+
+    def __str__(self):
+        return self.filename
         
