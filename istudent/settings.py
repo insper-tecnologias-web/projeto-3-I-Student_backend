@@ -40,11 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-<<<<<<< HEAD
-    'rest_framework.authtoken'
-=======
     'corsheaders'
->>>>>>> d89e7b051d47b40233607a1c5aeecfa075e2fc0e
 ]
 
 REST_FRAMEWORK = {
