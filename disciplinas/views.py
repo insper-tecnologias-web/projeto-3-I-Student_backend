@@ -1,3 +1,4 @@
+from tokenize import group
 from django.http import HttpResponse, Http404, HttpResponseForbidden, JsonResponse
 
 from django.contrib.auth import authenticate
@@ -8,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Course, Subject, Summary
+from django.contrib.auth.models import User, Group
 from .serializers import CourseSerializer, SubjectSerializer, SummarySerializer
 
 def index(request):
@@ -73,7 +75,7 @@ def api_get_token(request):
             username = request.data['username']
             password = request.data['password']
             user = authenticate(username=username, password=password)
-
+            print(User.objects.all())
             if user is not None:
                 token, created = Token.objects.get_or_create(user=user)
                 return JsonResponse({"token":token.key})
@@ -81,3 +83,24 @@ def api_get_token(request):
                 return HttpResponseForbidden()
     except:
         return HttpResponseForbidden()
+
+@api_view(['GET', 'POST'])
+def api_test(request):
+    try:
+        if request.method == 'POST':
+            username = request.data['username']
+            password = request.data['password']
+            email = request.data['email']
+
+            group = Group.objects.get(name='aluno')
+            print(group)
+            
+            user, created = User.objects.get_or_create(username=username)
+            user.set_password(password)
+            user.groups.add(group)
+            user.save()
+            
+    except:
+        raise Http404()
+    
+    return HttpResponse(user)
