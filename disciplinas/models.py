@@ -12,13 +12,17 @@ class Course(models.Model):
 
     def __str__(self):
         return self.url_course_name
+
+class Semester(models.Model):
+    number_of_semester = models.IntegerField()
+    display_semester_name = models.CharField(max_length=50, default = f'{number_of_semester}° Semestre')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     
 class Subject(models.Model):
     url_subject_name = models.CharField(max_length=50, unique=True)
     display_subject_name = models.CharField(max_length=50, unique=True)
-    semester = models.IntegerField()
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
     description = models.TextField()
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.url_subject_name
