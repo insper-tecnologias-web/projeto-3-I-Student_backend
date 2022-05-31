@@ -19,6 +19,12 @@ Link FrontEnd - https://github.com/sarahp31/I-Student_frontend.git  <br/>
 - [ ] Autenticação completa
 
 <h2>Requirements</h2>
+Você pode baixar um por um ou rodar, simplesmente:
+
+```
+$ pip install -r requirements.txt
+```
+
 <ul>
 <li>Django v4.0.4</li>
 <li>Django REST Framework v3.13.1</li>
@@ -36,5 +42,3 @@ Link FrontEnd - https://github.com/sarahp31/I-Student_frontend.git  <br/>
 ```
 $ python manage.py runserver
 ```
-
-<h2>Endpoints Utilizadas</h2>
