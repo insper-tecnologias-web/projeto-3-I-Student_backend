@@ -30,18 +30,18 @@ def api_subjects(request, course):
     try:
         course_obj = Course.objects.get(url_course_name=course)
         subjects_list = Subject.objects.filter(course=course_obj)
-        serialized_subjects = list()
+        serialized_subjects = dict()
         for semester in range(course_obj.number_of_semesters):
             this_semester_subjects = list()
             for subject in subjects_list:
                 if subject.semester == semester:
                     this_semester_subjects.append(subject.display_subject_name)
-            serialized_subjects.append(this_semester_subjects)  
+            serialized_subjects[semester] = this_semester_subjects
 
     except Course.DoesNotExist:
         raise Http404()
     
-    return HttpResponse(f'{serialized_subjects}')
+    return JsonResponse(serialized_subjects)
     
 
 @api_view(['GET'])
