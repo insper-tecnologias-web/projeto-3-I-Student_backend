@@ -8,5 +8,5 @@ urlpatterns = [
     path('api/<str:course>/<str:subject>/', views.api_summarys),
     path('api/<str:course>/<str:subject>/upload/', views.api_post_summary),
     path('api/token/', views.api_get_token),
-    path('api/test/', views.api_test)
+    path('api/create_account/', views.api_create_account)
 ]

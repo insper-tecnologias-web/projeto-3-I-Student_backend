@@ -56,17 +56,21 @@ def api_summarys(request, course, subject):
     serialized_summarys = SummarySerializer(summary_list, many=True)
     return Response(serialized_summarys.data)
 
-@api_view(['POST'])
+@api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def api_post_summary(request, course, subject):
     try:
         course_obj = Course.objects.get(url_course_name=course)
         subject_obj = Subject.objects.get(url_subject_name=subject)
-
+        summary_data = request.data
+        filename = summary_data['filename']
+        file = summary_data['file']
+        new_summary = Summary.objects.create(subject=subject_obj, filename=filename, file=file)
+  
     except Course.DoesNotExist or Subject.DoesNotExist:
         raise Http404()
     
-    return HttpResponse('oi!')
+    return JsonResponse({'deuCerto': True})
     
 @api_view(['POST'])
 def api_get_token(request):
@@ -84,13 +88,12 @@ def api_get_token(request):
     except:
         return HttpResponseForbidden()
 
-@api_view(['GET', 'POST'])
-def api_test(request):
+@api_view(['POST'])
+def api_create_account(request):
     try:
         if request.method == 'POST':
             username = request.data['username']
             password = request.data['password']
-            email = request.data['email']
 
             group = Group.objects.get(name='aluno')
             print(group)
@@ -103,4 +106,4 @@ def api_test(request):
     except:
         raise Http404()
     
-    return HttpResponse(user)
+    return JsonResponse({'created': created})
