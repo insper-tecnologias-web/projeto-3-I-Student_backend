@@ -35,7 +35,7 @@ def api_subjects(request, course):
             this_semester_subjects = list()
             for subject in subjects_list:
                 if subject.semester == semester:
-                    this_semester_subjects.append(subject.display_subject_name)
+                    this_semester_subjects.append([subject.display_subject_name, subject.url_subject_name])
             serialized_subjects[semester] = this_semester_subjects
 
     except Course.DoesNotExist:
