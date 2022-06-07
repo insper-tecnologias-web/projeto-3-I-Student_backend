@@ -1,3 +1,4 @@
+from fileinput import filename
 from tokenize import group
 from django.http import HttpResponse, Http404, HttpResponseForbidden, JsonResponse
 
@@ -73,14 +74,19 @@ def api_post_summary(request, course, subject):
         course_obj = Course.objects.get(url_course_name=course)
         subject_obj = Subject.objects.get(url_subject_name=subject)
         summary_data = request.data
-        filename = summary_data['filename']
+        # filename = summary_data['filename']
         file = summary_data['file']
-        new_summary = Summary.objects.create(subject=subject_obj, filename=filename, file=file)
-  
+        print(file)
+        if(len(file)!=0):
+            new_summary = Summary.objects.create(subject=subject_obj, filename=file.name, file=file)
+            deuCerto = True
+        else:
+            deuCerto = False
+            
     except Course.DoesNotExist or Subject.DoesNotExist:
         raise Http404()
     
-    return JsonResponse({'deuCerto': True})
+    return JsonResponse({'deuCerto': deuCerto})
     
 @api_view(['POST'])
 def api_get_token(request):
