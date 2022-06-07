@@ -26,7 +26,17 @@ def api_courses(request):
     return Response(serialized_courses.data)
 
 @api_view(['GET'])
-def api_subjects(request, course):
+def api_subject(request, course, subject):
+    try:
+        subject_obj = Subject.objects.get(url_subject_name=subject)
+    except Subject.DoesNotExist:
+        raise HttpResponse('deu merda')
+    
+    serialize = SubjectSerializer(subject_obj)
+    return Response(serialize.data)
+
+@api_view(['GET'])
+def api_subjects_list(request, course):
     try:
         course_obj = Course.objects.get(url_course_name=course)
         subjects_list = Subject.objects.filter(course=course_obj)
