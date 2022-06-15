@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-k$$%=uevig3nsn_(p-l!!-f7i^0y)m09-(boi@+$%oei^li6uy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['istudentbackend.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['istudentbackend.herokuapp.com', 'localhost', '127.0.0.1', '127.0.0.1:8000']
 
 # Application definition
 
@@ -106,9 +106,9 @@ WSGI_APPLICATION = 'istudent.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://localhost/istudent?user=istudentuser&password=istudentsenha',
+        default='postgresql://localhost/istudent?user=istudentuser&password=istudensenha',
         conn_max_age=600,
-        ssl_require=not DEBUG
+        ssl_require=not DEBUG,
     )
 }
 
