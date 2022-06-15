@@ -2,6 +2,14 @@
 
 Gabriel Onishi, Pedro Mahfuz e Sarah Pimenta
 Link FrontEnd - https://github.com/sarahp31/I-Student_frontend.git  <br/>
+___
+
+<h2>Para rodar o back-end</h2>
+Rode na Branch Offline, pois o upload para o Heroku não deu certo
+
+```
+$ python manage.py runserver
+```
 
 ## Lista de tarefas <br/>
 
@@ -36,9 +44,3 @@ $ pip install -r requirements.txt
 <li>dj-database-url v0.5.0</li>
 <li>Pillow</li>
 </ul>
-
-<h2>Para rodar o back-end</h2>
-
-```
-$ python manage.py runserver
-```
